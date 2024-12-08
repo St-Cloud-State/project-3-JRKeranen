@@ -15,6 +15,12 @@ class View extends JFrame {
   private JButton openButton;
   private JButton undoButton;
   private JButton redoButton;
+  private JButton moveButton;
+
+  // new button
+  private JButton triangleButton;
+  private JButton polygonButton;
+
   private static UndoManager undoManager;
     private String fileName;
   // other buttons to be added as needed;
@@ -93,11 +99,14 @@ class View extends JFrame {
     lineButton= new LineButton(undoManager, this, drawingPanel);
     labelButton = new LabelButton(undoManager, this, drawingPanel);
     selectButton= new SelectButton(undoManager, this, drawingPanel);
+    polygonButton = new PolygonButton(undoManager, this, drawingPanel);
     deleteButton= new DeleteButton(undoManager);
     saveButton= new SaveButton(undoManager, this);
     openButton= new OpenButton(undoManager, this);
     undoButton = new UndoButton(undoManager);
     redoButton = new RedoButton(undoManager);
+    triangleButton = new TriangleButton(undoManager, this, drawingPanel);
+    moveButton = new MoveButton(undoManager, this, drawingPanel, model);
     buttonPanel.add(lineButton);
     buttonPanel.add(labelButton);
     buttonPanel.add(selectButton);
@@ -106,7 +115,10 @@ class View extends JFrame {
     buttonPanel.add(openButton);
     buttonPanel.add(undoButton);
     buttonPanel.add(redoButton);
-    this.setSize(600, 400);
+    buttonPanel.add(triangleButton);
+    buttonPanel.add(polygonButton);
+    buttonPanel.add(moveButton);
+    this.setSize(1000, 600);
   }
   public void refresh() {
     // code to access the Model update the contents of the drawing panel.

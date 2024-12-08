@@ -14,4 +14,5 @@ public abstract class Item implements Serializable {
   public  abstract void render(UIContext uiContext);
     //uiContext.draw(this);
   //}
+  public abstract void moveTo(Point newPosition);
 }

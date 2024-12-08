@@ -13,6 +13,12 @@ public class Label extends Item {
       text = text.substring(0, text.length() - 1);
     }
   }
+
+  @Override
+  public void moveTo(Point newPosition){
+    startingPoint = newPosition;
+  }
+
   public boolean includes(Point point) {
     return distance(point, startingPoint) < 10.0;
   }
